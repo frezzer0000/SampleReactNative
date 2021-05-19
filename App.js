@@ -1,9 +1,10 @@
-if (__DEV__) {
-  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
-}
+// if (__DEV__) {
+//   import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+// }
 import React from 'react';
 import {Provider} from 'react-redux';
 import BLEList from './src/screens/screen';
+import BleManagerScreen from './src/screens/BLEManager';
 import BLEservices from './src/screens/BLEservices';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -22,7 +23,7 @@ function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Scanning" component={BLEList} />
+          <Stack.Screen name="Scanning" component={BleManagerScreen} />
           <Stack.Screen name="Services" component={BLEservices} />
         </Stack.Navigator>
       </NavigationContainer>

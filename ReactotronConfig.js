@@ -9,6 +9,7 @@ let scriptHostname;
 if (__DEV__) {
   const scriptURL = NativeModules.SourceCode.scriptURL;
   scriptHostname = scriptURL.split('://')[1].split(':')[0];
+  // host = '192.168.1.100';
 }
 
 const yeOldeConsoleLog = console.log;
@@ -28,7 +29,12 @@ console.log = (...args) => {
 };
 
 if (isIOS) {
-  Reactotron.configure({host: scriptHostname})
+  Reactotron.configure({
+    // host: scriptHostname
+    enabled: true,
+    host: ' 192.168.72.58', // server ip
+    // port: 9090,
+  })
     .setAsyncStorageHandler(AsyncStorage) //controls connection & communication settings
     .useReactNative({
       // asyncStorage: false,
